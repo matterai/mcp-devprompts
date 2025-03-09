@@ -12,8 +12,9 @@
     "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "declaration": false
+    "declaration": true,
+    "esModuleInterop": true
   },
   "include": ["src/*.ts"],
-  "exclude": ["node_modules", "build"]
+  "exclude": ["node_modules", "dist"]
 }

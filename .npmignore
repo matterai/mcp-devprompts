@@ -1,0 +1,14 @@
+# Source
+src/
+
+# Dev files
+tsconfig.json
+.gitignore
+node_modules/
+.git/
+
+# Misc
+.DS_Store
+.vscode/
+.idea/
+*.log

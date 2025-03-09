@@ -11,6 +11,32 @@ A Model Context Protocol (MCP) server for accessing GitHub Gists containing deve
 
 ## Installation
 
+### Quick start with npx
+
+You can run the server directly without installation:
+
+```bash
+npx -y @matterai/mcp-devprompts
+```
+
+With GitHub token for authentication:
+
+```bash
+GITHUB_TOKEN=your_token npx -y @matterai/mcp-devprompts
+```
+
+### Local installation
+
+```bash
+# Install globally
+npm install -g @matterai/mcp-devprompts
+
+# Run the server
+mcp-devprompts
+```
+
+### From source
+
 ```bash
 # Clone this repository
 git clone https://github.com/matterai/mcp-devprompts.git
@@ -21,13 +47,8 @@ npm install
 
 # Build the project
 npm run build
-```
 
-## Usage
-
-### Running the server
-
-```bash
+# Run the server
 npm start
 ```
 
@@ -39,8 +60,8 @@ npm start
 {
   "mcpServers": {
     "github-gist-server": {
-      "command": "node",
-      "args": ["/path/to/mcp-devprompts/build/index.js"]
+      "command": "npx",
+      "args": ["-y", "@matterai/mcp-devprompts"]
     }
   }
 }
@@ -52,11 +73,23 @@ npm start
 {
   "mcpServers": {
     "github-gist-server": {
-      "command": "node",
-      "args": ["/path/to/mcp-devprompts/build/index.js"],
+      "command": "npx",
+      "args": ["-y", "@matterai/mcp-devprompts"],
       "env": {
         "GITHUB_TOKEN": "your-github-personal-access-token"
       }
+    }
+  }
+}
+```
+
+3. If you installed the package globally:
+
+```json
+{
+  "mcpServers": {
+    "github-gist-server": {
+      "command": "mcp-devprompts"
     }
   }
 }
@@ -67,7 +100,14 @@ npm start
 For testing and debugging, you can use the MCP Inspector:
 
 ```bash
-npx @modelcontextprotocol/inspector node build/index.js
+# Using npx
+npx @modelcontextprotocol/inspector npx -y @matterai/mcp-devprompts
+
+# If installed globally
+npx @modelcontextprotocol/inspector mcp-devprompts
+
+# If running from source
+npx @modelcontextprotocol/inspector node dist/index.js
 ```
 
 ## Accessing Gists

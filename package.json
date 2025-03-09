@@ -1,21 +1,38 @@
 {
-  "name": "mcp-devprompts",
+  "name": "@matterai/mcp-devprompts",
   "version": "1.0.0",
   "description": "MCP server for accessing GitHub Gists with dev prompts",
   "type": "module",
-  "main": "build/index.js",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-devprompts": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
-    "start": "node build/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
     "github",
     "gist",
-    "claude"
+    "claude",
+    "ai",
+    "prompt",
+    "template"
   ],
-  "author": "matterai",
+  "author": "Vladimir matterai Vlasiuk <matterai.net@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matterai/mcp-devprompts.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.6.1",
     "node-fetch": "^3.3.2",

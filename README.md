@@ -5,6 +5,7 @@ A Model Context Protocol (MCP) server for accessing GitHub Gists containing deve
 ## Features
 
 - Access GitHub Gists as MCP resources using the URI format `gist://github/{gistId}`
+- Provides a `read-gist` tool for programmatic access to gist content
 - Extracts and formats markdown content from gists
 - Supports authenticated GitHub API access to avoid rate limiting
 - Provides proper error handling for failed requests
@@ -112,6 +113,8 @@ npx @modelcontextprotocol/inspector node dist/index.js
 
 ## Accessing Gists
 
+### Using Resource URIs
+
 When connected to an MCP client like Claude, you can access gists using:
 
 ```
@@ -119,6 +122,21 @@ gist://github/c6d403bf2226db31a68948e26255a172
 ```
 
 Replace the ID with the actual GitHub Gist ID from the URL.
+
+### Using the read-gist Tool
+
+The server also provides a `read-gist` tool that you can use to fetch gist content programmatically:
+
+```
+Tool: read-gist
+Parameters:
+  - gist_id: The GitHub Gist ID (e.g., "c6d403bf2226db31a68948e26255a172")
+```
+
+Example usage with Claude:
+"Please fetch the gist with ID c6d403bf2226db31a68948e26255a172"
+
+Claude will use the tool to retrieve and display the gist content.
 
 ## GitHub Authentication
 

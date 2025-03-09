@@ -1,6 +1,6 @@
 {
   "name": "@matterai/mcp-devprompts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for accessing GitHub Gists with dev prompts",
   "type": "module",
   "main": "dist/index.js",
